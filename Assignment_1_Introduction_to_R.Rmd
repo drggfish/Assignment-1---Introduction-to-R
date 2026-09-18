@@ -23,12 +23,25 @@ date: "2026-08"
 ```{r}
 lst <- list(4, 'j', 'Y', 5, 'f', 'K', 8, 'z', 'T', 'c', 0, 'B', 2, 'm', 'X', 9, 'd', 'V', 3, 'n', 'G', 6, 'h', 'J', 2, 'p', 'O', 1, 'q', 'R', 7, 's', 'D', 2, 'l', 'N', 0, 'w', 'E', 5, 'e', 'U', 4, 'i', 'P', 1, 'a', 'H', 8, 'y', 'S', 3, 'g', 'F', 9, 'b', 'M', 6, 'k', 'L', 7)
 
+my_types <- c()
+
 for (i in seq_along(lst)){
   item_class <- class(lst[[i]])
-  print(item_class)
-  my_types <- append(item_class)
-  print(length(my_types))
+  my_types <- append(my_types, values = item_class)
 }
+
+length(my_types)
+
+counts <- table(my_types)
+print(counts)
+
+for (i in seq_along(lst)){
+  item_class <- class(lst[[i]])
+  if (item_class == "numeric" & lst[[i]] > 5)
+    greater_than_five +1
+}
+
+print(greater_than_five)
 
 ```
 
