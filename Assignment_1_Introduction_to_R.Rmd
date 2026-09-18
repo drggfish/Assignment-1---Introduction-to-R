@@ -22,7 +22,10 @@ date: "2026-08"
   e) Get the index (or indices) of the number "1" in the lst list.
 
 ```{r, eval = TRUE, comment=""}
-lst <- list(4, 'j', 'Y', 5, 'f', 'K', 8, 'z', 'T', 'c', 0, 'B', 2, 'm', 'X', 9, 'd', 'V', 3, 'n', 'G', 6, 'h', 'J', 2, 'p', 'O', 1, 'q', 'R', 7, 's', 'D', 2, 'l', 'N', 0, 'w', 'E', 5, 'e', 'U', 4, 'i', 'P', 1, 'a', 'H', 8, 'y', 'S', 3, 'g', 'F', 9, 'b', 'M', 6, 'k', 'L', 7)
+lst <- list(4, 'j', 'Y', 5, 'f', 'K', 8, 'z', 'T', 'c', 0, 'B', 2, 'm', 
+            'X', 9, 'd', 'V', 3, 'n', 'G', 6, 'h', 'J', 2, 'p', 'O', 1, 'q', 
+            'R', 7, 's', 'D', 2, 'l', 'N', 0, 'w', 'E', 5, 'e', 'U', 4, 'i', 
+            'P', 1, 'a', 'H', 8, 'y', 'S', 3, 'g', 'F', 9, 'b', 'M', 6, 'k', 'L', 7)
 
 #lst <- list(4, 'j', "Y", 5, 1)  ### Test list 
 
@@ -101,17 +104,27 @@ hist(as.numeric(rna_data[5,]),
 ```{r}
 
 my_vector <- c(1,2,3,4,5,6,7,8,9)
+ltoe5_vec <- c()
+gt5_vec <- c()
 
 my_first_function <- function(vec,x) {
   for (val in vec) {
-    if (val > x) {
-      print(val)
+    if (val <= x) {
+      ltoe5_vec <- append(ltoe5_vec, values = val)
+    }
+    else{
+      gt5_vec <- append(gt5_vec, values = val)
     }
   }
-  }
+  return(list(ltoe_vector = ltoe5_vec, gtoe_vector = gt5_vec))
+}
 
 # Test the function
-my_first_function(my_vector,5)
+return_vectors <- my_first_function(my_vector,5)
+
+# print(return_vectors[1])
+#print(gt5_vec)
+print(return_vectors)
 
 ```
   
