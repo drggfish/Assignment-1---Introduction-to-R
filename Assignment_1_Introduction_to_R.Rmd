@@ -21,9 +21,9 @@ date: "2026-08"
   e) Get the index (or indices) of the number "1" in the lst list.
 
 ```{r}
-#lst <- list(4, 'j', 'Y', 5, 'f', 'K', 8, 'z', 'T', 'c', 0, 'B', 2, 'm', 'X', 9, 'd', 'V', 3, 'n', 'G', 6, 'h', 'J', 2, 'p', 'O', 1, 'q', 'R', 7, 's', 'D', 2, 'l', 'N', 0, 'w', 'E', 5, 'e', 'U', 4, 'i', 'P', 1, 'a', 'H', 8, 'y', 'S', 3, 'g', 'F', 9, 'b', 'M', 6, 'k', 'L', 7)
+lst <- list(4, 'j', 'Y', 5, 'f', 'K', 8, 'z', 'T', 'c', 0, 'B', 2, 'm', 'X', 9, 'd', 'V', 3, 'n', 'G', 6, 'h', 'J', 2, 'p', 'O', 1, 'q', 'R', 7, 's', 'D', 2, 'l', 'N', 0, 'w', 'E', 5, 'e', 'U', 4, 'i', 'P', 1, 'a', 'H', 8, 'y', 'S', 3, 'g', 'F', 9, 'b', 'M', 6, 'k', 'L', 7)
 
-lst <- list(4, 'j', "Y", 5, 1)  ### Test list 
+#lst <- list(4, 'j', "Y", 5, 1)  ### Test list 
 
 
 my_types <- c()
@@ -37,6 +37,7 @@ for (i in seq_along(lst)){
 # length(my_types)
 
 counts <- table(my_types)
+cat("Counts of number of types in vector 'my_types'","\n")
 print(counts)
 
 for (i in seq_along(lst)){
@@ -45,7 +46,7 @@ for (i in seq_along(lst)){
     greater_than_five <- greater_than_five + 1
 }
 
-cat("Number of items in the list greater than five:", greater_than_five,"\n")
+cat("Number of 'numeric' type items in the list greater than five:", greater_than_five,"\n")
 
 my_types_factor <- as.factor(my_types)
 
@@ -67,6 +68,19 @@ for (i in seq_along(lst)){
   e) Subset this data to contain only their first three samples and first 2000 genes. Write this subset to a file called "eso_sub.csv".
 
 ```{r}
+
+#rna_data <- read.table("GSE165252_vst_PERFECT.txt", header = TRUE)
+number_of_rows <- nrow(rna_data)
+cat("The number of genes in the 'rna_data':", number_of_rows, "\n")
+number_of_columns <- ncol(rna_data)
+cat("The number of samples in the 'rna_data':", number_of_columns, "\n")
+#head(rna_data)
+
+#hist(as.numeric(rna_data[5,]), freq = FALSE)
+
+eso_sub <- rna_data[1:2000, 1:3]
+
+write.csv(eso_sub, "eso_sub.csv", row.names = TRUE)
 
 ```
 
