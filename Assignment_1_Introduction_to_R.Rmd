@@ -76,17 +76,33 @@ number_of_columns <- ncol(rna_data)
 cat("The number of samples in the 'rna_data':", number_of_columns, "\n")
 #head(rna_data)
 
-#hist(as.numeric(rna_data[5,]), freq = FALSE)
+hist(as.numeric(rna_data[5,]), 
+                freq = TRUE,
+                main = paste("Histogram of", rownames(rna_data)[5]),
+                xlab = "Expression")
 
-eso_sub <- rna_data[1:2000, 1:3]
+#eso_sub <- rna_data[1:2000, 1:3]
 
-write.csv(eso_sub, "eso_sub.csv", row.names = TRUE)
+#write.csv(eso_sub, "eso_sub.csv", row.names = TRUE)
 
 ```
 
   3) Write a function call "my_first_function". The function should take the following vector: my_vector <- c(1,2,3,4,5,6,7,8,9). Your function should sort the numbers in my_vector into two categories: less than or equal to 5 or greater than 5. Hint: You can take a look at for loops and if/else statements to complete this question!
   
 ```{r}
+
+my_vector <- c(1,2,3,4,5,6,7,8,9)
+
+my_first_function <- function(vec,x) {
+  for (val in vec) {
+    if (val > x) {
+      print(val)
+    }
+  }
+  }
+
+# Test the function
+my_first_function(my_vector,5)
 
 ```
   
