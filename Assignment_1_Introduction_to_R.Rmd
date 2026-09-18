@@ -21,16 +21,20 @@ date: "2026-08"
   e) Get the index (or indices) of the number "1" in the lst list.
 
 ```{r}
-lst <- list(4, 'j', 'Y', 5, 'f', 'K', 8, 'z', 'T', 'c', 0, 'B', 2, 'm', 'X', 9, 'd', 'V', 3, 'n', 'G', 6, 'h', 'J', 2, 'p', 'O', 1, 'q', 'R', 7, 's', 'D', 2, 'l', 'N', 0, 'w', 'E', 5, 'e', 'U', 4, 'i', 'P', 1, 'a', 'H', 8, 'y', 'S', 3, 'g', 'F', 9, 'b', 'M', 6, 'k', 'L', 7)
+# lst <- list(4, 'j', 'Y', 5, 'f', 'K', 8, 'z', 'T', 'c', 0, 'B', 2, 'm', 'X', 9, 'd', 'V', 3, 'n', 'G', 6, 'h', 'J', 2, 'p', 'O', 1, 'q', 'R', 7, 's', 'D', 2, 'l', 'N', 0, 'w', 'E', 5, 'e', 'U', 4, 'i', 'P', 1, 'a', 'H', 8, 'y', 'S', 3, 'g', 'F', 9, 'b', 'M', 6, 'k', 'L', 7)
+
+lst <- list(4, 'j', "Y", 5, 1)  ### Test list 
+
 
 my_types <- c()
+greater_than_five <- 0
 
 for (i in seq_along(lst)){
   item_class <- class(lst[[i]])
   my_types <- append(my_types, values = item_class)
 }
 
-length(my_types)
+# length(my_types)
 
 counts <- table(my_types)
 print(counts)
@@ -38,10 +42,19 @@ print(counts)
 for (i in seq_along(lst)){
   item_class <- class(lst[[i]])
   if (item_class == "numeric" & lst[[i]] > 5)
-    greater_than_five +1
+    greater_than_five <- greater_than_five + 1
 }
 
 print(greater_than_five)
+
+my_types_factor <- as.factor(my_types)
+
+for (i in seq_along(lst)){
+  if (lst[[i]] == 1)
+    print(i)
+}
+
+
 
 ```
 
