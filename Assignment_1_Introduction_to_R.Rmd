@@ -79,7 +79,7 @@ for (i in seq_along(lst)){
   d) Make a histogram of the expression values of a gene of your choosing from this data set.
   e) Subset this data to contain only their first three samples and first 2000 genes. Write this subset to a file called "eso_sub.csv".
 
-```{r echo=FALSE}
+```{r eval = TRUE, comment=""}
 
 rna_data <- read.table("GSE165252_vst_PERFECT.txt", header = TRUE)
 number_of_rows <- nrow(rna_data)
@@ -101,7 +101,7 @@ hist(as.numeric(rna_data[5,]),
 
   3) Write a function call "my_first_function". The function should take the following vector: my_vector <- c(1,2,3,4,5,6,7,8,9). Your function should sort the numbers in my_vector into two categories: less than or equal to 5 or greater than 5. Hint: You can take a look at for loops and if/else statements to complete this question!
   
-```{r}
+```{r eval = TRUE, comment=""}
 
 my_vector <- c(1,2,3,4,5,6,7,8,9)
 ltoe5_vec <- c()
@@ -122,8 +122,6 @@ my_first_function <- function(vec,x) {
 # Test the function
 return_vectors <- my_first_function(my_vector,5)
 
-# print(return_vectors[1])
-#print(gt5_vec)
 print(return_vectors)
 
 ```
