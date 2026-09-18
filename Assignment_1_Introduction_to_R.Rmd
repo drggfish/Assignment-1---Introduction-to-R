@@ -1,6 +1,7 @@
 ---
 title: "Assignment_1_Introduction_to_R"
 output: pdf_document
+author: "George Gregory Fisher"
 date: "2026-08"
 ---
 
@@ -20,11 +21,13 @@ date: "2026-08"
   d) Generate a factor of types from your "my_types" vector.
   e) Get the index (or indices) of the number "1" in the lst list.
 
-```{r}
+```{r, eval = TRUE, comment=""}
 lst <- list(4, 'j', 'Y', 5, 'f', 'K', 8, 'z', 'T', 'c', 0, 'B', 2, 'm', 'X', 9, 'd', 'V', 3, 'n', 'G', 6, 'h', 'J', 2, 'p', 'O', 1, 'q', 'R', 7, 's', 'D', 2, 'l', 'N', 0, 'w', 'E', 5, 'e', 'U', 4, 'i', 'P', 1, 'a', 'H', 8, 'y', 'S', 3, 'g', 'F', 9, 'b', 'M', 6, 'k', 'L', 7)
 
 #lst <- list(4, 'j', "Y", 5, 1)  ### Test list 
 
+# a) What type of data is each of the "things" in the list? Write 
+# these types to a vector called "my_types".
 
 my_types <- c()
 greater_than_five <- 0
@@ -34,11 +37,13 @@ for (i in seq_along(lst)){
   my_types <- append(my_types, values = item_class)
 }
 
-# length(my_types)
+# b) Count how many of each data type appear in your vector.
 
 counts <- table(my_types)
 cat("Counts of number of types in vector 'my_types'","\n")
 print(counts)
+
+# c) How many numbers in this list are greater than 5?
 
 for (i in seq_along(lst)){
   item_class <- class(lst[[i]])
@@ -48,10 +53,14 @@ for (i in seq_along(lst)){
 
 cat("Number of 'numeric' type items in the list greater than five:", greater_than_five,"\n")
 
+# d) Generate a factor of types from your "my_types" vector.
+
 my_types_factor <- as.factor(my_types)
 
 cat("The number of levels in my 'my_types' vector are:", my_types_factor[1], "\n")
 cat("The levels in my 'my_types' vector are:", levels(my_types_factor), "\n")
+
+# e) Get the index (or indices) of the number "1" in the lst list.
 
 for (i in seq_along(lst)){
   if (lst[[i]] == 1)
@@ -67,9 +76,9 @@ for (i in seq_along(lst)){
   d) Make a histogram of the expression values of a gene of your choosing from this data set.
   e) Subset this data to contain only their first three samples and first 2000 genes. Write this subset to a file called "eso_sub.csv".
 
-```{r}
+```{r echo=FALSE}
 
-#rna_data <- read.table("GSE165252_vst_PERFECT.txt", header = TRUE)
+rna_data <- read.table("GSE165252_vst_PERFECT.txt", header = TRUE)
 number_of_rows <- nrow(rna_data)
 cat("The number of genes in the 'rna_data':", number_of_rows, "\n")
 number_of_columns <- ncol(rna_data)
